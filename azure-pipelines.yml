@@ -22,12 +22,5 @@ jobs:
   dependsOn: Work
   condition: failed()
   steps: 
-  - bash: |
-      az boards work-item create \
-        --title "Build $(build.buildNumber) failed" \
-        --type bug \
-        --org $(System.TeamFoundationCollectionUri) \
-        --project $(System.TeamProject)
-    env: 
-      AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
-    displayName: 'Create work item on failure'
+  - script: echo Hello, world!
+    displayName: 'Run a one-line failed script' 
